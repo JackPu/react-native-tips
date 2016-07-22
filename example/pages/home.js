@@ -22,6 +22,8 @@ var Web = require('./web');
 var Percent = require('./percent');
 var PageButton = require('./button');
 var Icons = require('./icons');
+var GetData = require('./getdata');
+
 // need tabs view github https://github.com/aksonov/react-native-tabs
 
 
@@ -70,6 +72,7 @@ class Home extends Component {
         this.openPercent = this.openPercent.bind(this);
         this.openIcons = this.openIcons.bind(this);
         this.openButton = this.openButton.bind(this);
+        this.openData = this.openData.bind(this);
       //  this.refresh();
     }
     
@@ -118,7 +121,7 @@ class Home extends Component {
                         <View style={styles.row}>
                             <Image style={styles.thumb} source={require('../images/network.png')} />               
                             <Text numberOfLines={1} style={styles.text}>网络请求</Text>  
-                            <Button numberOfLines={1} style={styles.btn}>
+                            <Button onPress={this.openData} numberOfLines={1} style={styles.btn}>
                               打开
                             </Button>
                         </View>
@@ -176,6 +179,10 @@ class Home extends Component {
 
     openButton() {
         this. _pressRow('百分比',PageButton);    
+    }
+
+    openData() {
+        this._pressRow('请求数据',GetData);
     }
     
     _pressRow(title,componentname) {

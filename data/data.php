@@ -33,7 +33,7 @@
     );
 
     header("content-type:text/json");
-    echo json_encode($arr);
+    echo json_encode(array("errcode" => 0 ,"data" => $arr);
 
 ?>
 
