@@ -47,6 +47,7 @@ react-native start
 ``` bash 
 npm install react-native-button --save
 ```
+
 安装好后，你就可以大胆的这样写了:
 ``` js
 <Button
