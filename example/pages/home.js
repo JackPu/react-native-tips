@@ -19,7 +19,9 @@ var App = require('../service/core.app');
 
 var Button = require('react-native-button');
 var Web = require('./web');
-
+var Percent = require('./percent');
+var PageButton = require('./button');
+var Icons = require('./icons');
 // need tabs view github https://github.com/aksonov/react-native-tabs
 
 
@@ -56,8 +58,6 @@ var styles = StyleSheet.create({
     borderRadius:2,
   },
   
-
-
 });
 
 class Home extends Component {
@@ -67,8 +67,9 @@ class Home extends Component {
         this._pressRow = this._pressRow.bind(this);
         
         this.openWebview = this.openWebview.bind(this);
-
-        
+        this.openPercent = this.openPercent.bind(this);
+        this.openIcons = this.openIcons.bind(this);
+        this.openButton = this.openButton.bind(this);
       //  this.refresh();
     }
     
@@ -89,7 +90,7 @@ class Home extends Component {
                         <View style={styles.row}>
                             <Image style={styles.thumb} source={require('../images/button-ios.png')} />               
                             <Text numberOfLines={1} style={styles.text}>Button 按钮</Text>  
-                            <Button numberOfLines={1} style={styles.btn}>
+                            <Button onPress={this.openButton} numberOfLines={1} style={styles.btn}>
                               打开
                             </Button>
                         </View>
@@ -110,7 +111,7 @@ class Home extends Component {
                         <View style={styles.row}>
                             <Image style={styles.thumb} source={require('../images/percent-ios.png')} />               
                             <Text numberOfLines={1} style={styles.text}>百分比</Text>  
-                            <Button numberOfLines={1} style={styles.btn}>
+                            <Button onPress={()=>this.openPercent()} numberOfLines={1} style={styles.btn}>
                               打开
                             </Button>
                         </View>
@@ -131,7 +132,7 @@ class Home extends Component {
                         <View style={styles.row}>
                             <Image style={styles.thumb} source={require('../images/setting-ios.png')} />               
                             <Text numberOfLines={1} style={styles.text}>Icon 管理</Text>  
-                            <Button numberOfLines={1} style={styles.btn}>
+                            <Button onPress={this.openIcons} numberOfLines={1} style={styles.btn}>
                               打开
                             </Button>
                         </View>
@@ -145,7 +146,7 @@ class Home extends Component {
                         <View style={styles.row}>
                             <Image style={styles.thumb} source={require('../images/about-ios.png')} />               
                             <Text numberOfLines={1} style={styles.text}>关于项目</Text>  
-                            <Button numberOfLines={1} style={styles.btn}>
+                            <Button onPress={()=>this.openWebview('关于项目介绍','https://github.com/JackPu/react-native-tips/blob/master/about-app.md')} numberOfLines={1} style={styles.btn}>
                               打开
                             </Button>
                         </View>
@@ -164,21 +165,31 @@ class Home extends Component {
             idx: idx
         });    
     }
+
+    openPercent() {
+        this. _pressRow('百分比',Percent);    
+    }
+
+    openIcons() {
+        this. _pressRow('Icon 管理',Icons);    
+    }
+
+    openButton() {
+        this. _pressRow('百分比',PageButton);    
+    }
     
-    _pressRow(rowID,rowData) {
-        console.log(rowID);
-        return;
-        this.props.navChange({
-          name: "反馈",
-          component: Web,
+    _pressRow(title,componentname) {
+
+        this.props.toRoute({
+          name: title,
+          component: componentname,
           headerStyle:{
             borderBottomWidth:1,
             borderBottomColor: '#ddd',
             backgroundColor: '#2980b9',  
           },
           data:{
-            url: rowData['game_url'],
-            title: 'dakaz' 
+            
           },    
           titleStyle:{
             color: '#333333',
@@ -187,10 +198,12 @@ class Home extends Component {
         });
     }
 
-    openWebview() {
+    
+
+    openWebview(title,url) {
         
         this.props.toRoute({
-          name: "打开webview",
+          name: title,
           component: Web,
           headerStyle:{
             borderBottomWidth:1,
@@ -198,7 +211,7 @@ class Home extends Component {
             backgroundColor: '#2980b9',  
           },
           data:{
-            url: 'http://events.jackpu.com/happy-children-day/',
+            url: url,
             title: '打开webview' 
           },    
           titleStyle:{

@@ -24,11 +24,10 @@ class Web extends Component {
             url = props.data.url;
         }
         this.state = {
-          url: 'http://events.jackpu.com/happy-children-day/',
+          url: url,
         };
 
     }
-        
     render() {
 
         return ( 

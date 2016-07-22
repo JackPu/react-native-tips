@@ -12,6 +12,7 @@ import {
   View
 } from 'react-native';
 
+
 class example extends Component {
   render() {
     return (
