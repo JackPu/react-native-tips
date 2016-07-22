@@ -23,7 +23,9 @@ var Percent = require('./percent');
 var PageButton = require('./button');
 var Icons = require('./icons');
 var GetData = require('./getdata');
-
+var LongText = require('./longtext');
+var Grid = require('./grid');
+var NavBar = require('./navbar');
 // need tabs view github https://github.com/aksonov/react-native-tabs
 
 
@@ -52,7 +54,7 @@ var styles = StyleSheet.create({
   btn: {
     flex: 1,
     marginTop: 10,
-      padding:5,
+    padding:5,
     width:70,
     backgroundColor: '#1ba1e2',
     color: '#fff', 
@@ -73,7 +75,9 @@ class Home extends Component {
         this.openIcons = this.openIcons.bind(this);
         this.openButton = this.openButton.bind(this);
         this.openData = this.openData.bind(this);
-      //  this.refresh();
+        this.openLongText = this.openLongText.bind(this);
+        this.openGrid = this.openGrid.bind(this);
+        this.openNavBar = this.openNavBar.bind(this);
     }
     
    
@@ -84,7 +88,7 @@ class Home extends Component {
             <View style ={styles.container}>
                <View style={Css.navbar}>
                  <Text style={Css.navbarText} numberOfLines={1}>
-                  React native Tips
+                  React Native Tips
                 </Text>  
                 </View>
 
@@ -100,14 +104,14 @@ class Home extends Component {
                         <View style={styles.row}>
                             <Image style={styles.thumb} source={require('../images/book-list.png')} />               
                             <Text numberOfLines={1} style={styles.text}>Grid 列表</Text>  
-                            <Button numberOfLines={1} style={styles.btn}>
+                            <Button onPress={this.openGrid} numberOfLines={1} style={styles.btn}>
                               打开
                             </Button>
                         </View>
                         <View style={styles.row}>
                             <Image style={styles.thumb} source={require('../images/text-ios.png')} />               
                             <Text numberOfLines={1} style={styles.text}>文字过长</Text>  
-                            <Button numberOfLines={1} style={styles.btn}>
+                            <Button onPress={this.openLongText} numberOfLines={1} style={styles.btn}>
                               打开
                             </Button>
                         </View>
@@ -128,7 +132,7 @@ class Home extends Component {
                         <View style={styles.row}>
                             <Image style={styles.thumb} source={require('../images/webview-ios.png')} />               
                             <Text numberOfLines={1} style={styles.text}>使用webview</Text>  
-                            <Button onPress={this.openWebview} numberOfLines={1} style={styles.btn}>
+                            <Button onPress={()=>this.openWebview('WebView','http://events.jackpu.com/happy-children-day')} numberOfLines={1} style={styles.btn}>
                               打开
                             </Button>
                         </View>
@@ -142,7 +146,7 @@ class Home extends Component {
                         <View style={styles.row}>
                             <Image style={styles.thumb} source={require('../images/nav-ios.png')} />               
                             <Text numberOfLines={1} style={styles.text}>导航条</Text>  
-                            <Button numberOfLines={1} style={styles.btn}>
+                            <Button onPress={this.openNavBar} numberOfLines={1} style={styles.btn}>
                               打开
                             </Button>
                         </View>
@@ -184,6 +188,19 @@ class Home extends Component {
     openData() {
         this._pressRow('请求数据',GetData);
     }
+
+    
+    openLongText() {
+        this._pressRow('文字过长',LongText);
+    }
+
+    openGrid() {
+        this._pressRow('Grid列表',Grid);
+    }
+
+    openNavBar() {
+        this._pressRow('导航条',NavBar);
+    }
     
     _pressRow(title,componentname) {
 
@@ -195,11 +212,12 @@ class Home extends Component {
             borderBottomColor: '#ddd',
             backgroundColor: '#2980b9',  
           },
+        
           data:{
             
           },    
           titleStyle:{
-            color: '#333333',
+            color: '#fff',
           }
                
         });
@@ -222,7 +240,7 @@ class Home extends Component {
             title: '打开webview' 
           },    
           titleStyle:{
-            color: '#333333',
+            color: '#fff',
           }
                
         });

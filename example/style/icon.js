@@ -8,9 +8,12 @@ let styles = StyleSheet.create({
   icon: {
     width: 21,
     height: 21,
-    marginTop: 4,
-    marginRight: 15,
   },
+  wrap:{
+    flex:1,
+    alignItems:'center',  
+    justifyContent:'center',  
+  },    
   blueIcon:{
     backgroundColor: '#3498db',
     borderRadius: 10.5,  
@@ -48,7 +51,7 @@ class Icons extends Component {
 
       render() {
         return (
-          <TouchableHighlight underlayColor="transparent" onPress={this.press}>
+          <TouchableHighlight style={styles.wrap} underlayColor="transparent" onPress={this.press}>
             {this._renderIcon()}
           </TouchableHighlight>
         );
@@ -112,7 +115,7 @@ class BackIcon2 extends React.Component  {
         return (
             <View style={styles.imageBtn}>
                 <Image source={require('../images/Back-white-50.png')} style={[styles.icon,{marginRight:5,marginLeft:5,width:16}]} />
-                <Text style={{fontSize:14,color:'#fff',marginTop:7}}>返回</Text>
+                <Text style={{fontSize:14,color:'#fff',marginTop:4}}>返回</Text>
             </View>
         );  
       }
@@ -125,7 +128,60 @@ class GiftIcon extends Icons {
         );  
       }
 }
+class IdeaIcon extends Icons {
+    _renderIcon() {
+        return (
+            <Image source={require('../images/Idea-64.png')} style={[styles.icon]} />
+        );  
+      }
+}
+class UserIcon extends Icons {
+    _renderIcon() {
+        return (
+            <Image source={require('../images/Contacts-50.png')} style={[styles.icon,{width:16,height:16,opacity:.7}]} />
+        );  
+      }
+}
 
+class HomeIcon extends Icons {
+    _renderIcon() {
+        return (
+            <Image source={require('../images/home.png')} style={[styles.icon,{width:16,height:16,opacity:.7}]} />
+        );  
+      }
+}
+
+class SmileIcon extends Icons {
+    _renderIcon() {
+        return (
+            <Image source={require('../images/smile.png')} style={[styles.icon,{width:16,height:16,opacity:.7}]} />
+        );  
+      }
+}
+
+class TimeIcon extends Icons {
+    _renderIcon() {
+        return (
+            <Image source={require('../images/time.png')} style={[styles.icon,{width:16,height:16,opacity:.7}]} />
+        );  
+      }
+}
+
+class ReportIcon extends Icons {
+    _renderIcon() {
+        return (
+            <Image source={require('../images/report.png')} style={[styles.icon,{width:16,height:16,opacity:.7}]} />
+        );  
+      }
+}
+
+class CommemtIcon extends Icons {
+    _renderIcon() {
+        return (
+            <Image source={require('../images/comemt.png')} style={[styles.icon,{width:16,height:16,opacity:.7}]} />
+        );  
+      }
+}
 
 
 module.exports = {
@@ -135,6 +191,14 @@ module.exports = {
     CheckmarkIcon,
     CheckmarkIcon2,
     BackIcon2,
-    GiftIcon
+    BackIcon,
+    GiftIcon,
+    IdeaIcon,
+    UserIcon,
+    HomeIcon,
+    SmileIcon,
+    TimeIcon,
+    CommemtIcon,
+    ReportIcon,
     
 };

@@ -12,7 +12,7 @@ var App = {
     
     config: {
         
-        api: 'your.site.com',
+        api: 'events.jackpu.com',
         // app 版本号
         version: 1.1,
         
