@@ -4,13 +4,39 @@
 <img src="http://img1.vued.vanthink.cn/vued5facf9615fae72cd5296b47d241064d1.png" />
 
 
-相信好多写React Native的都是前端出身，当然遇见问题的，也很多时候会想从前端出发，但由于React Native本身的限制，并不是支持足够多的属性和样式，所以Bo主结合自己的开发实践，总结了一些您将来开发可能会遇见的问题并给出一些小的代码参考;
+相信好多写React Native的都是前端出身，当然遇见问题的，也很多时候会想从前端出发，但由于React Native本身的限制，并不是支持足够多的属性和样式，所以Bo主结合自己的开发实践,并总结了一些将来开发可能会遇见的问题并给出一些小的代码参考;(PS实现不好的希望能大家提出看法，自己也会更新)。
+
+自己将代码放到了`example`下，并且做成了一个App.这样可以查看具体运行效果：
+
+#### 截图1:
+
+<img src="./screenshots/01.gif"/>
 
 
+
+#### 截图2:
+
+<img src="./screenshots/02.gif"/>
+
+
+
+
+## 开始
+
+``` bash
+git clone https://github.com/JackPu/react-native-tips.git
+```
+进入example 目录
+
+``` bash
+react-native start
+```
+
+用xcode打开ios目录下的项目，运行就可以看到上面的运行界面了。
 
 ### 1.关于按钮
 
-写习惯了html我们看到按钮，第一时间想到的便是Button,但是目前React Native并没有这个组建，不过没关系，我们可以使用 [TouchableHighlight](TouchableHighlight),[TouchableOpacity](https://facebook.github.io/react-native/docs/touchableopacity.html)来实现按钮组件，当然常用的样式可以应用在上面，形成格式各样的按钮。
+写习惯了html我们看到按钮，第一时间想到的便是Button,但是目前React Native并没有这个组件，不过没关系，我们可以使用 [TouchableHighlight](TouchableHighlight),[TouchableOpacity](https://facebook.github.io/react-native/docs/touchableopacity.html)来实现按钮组件，当然常用的样式可以应用在上面，形成格式各样的按钮。
 ``` js
 <TouchableHighlight onPress={this._onPressButton}>
       <Text>This is Button</Text>
@@ -24,11 +50,11 @@ npm install react-native-button --save
 安装好后，你就可以大胆的这样写了:
 ``` js
 <Button
-        style={[Css.btn,Css.btnP]}
-        styleDisabled={{color: 'red'}}
-        onPress={() => this._handlePress()}>
-        This is a button
-      </Button>
+    style={[Css.btn,Css.btnP]}
+    styleDisabled={{color: 'red'}}
+    onPress={() => this._handlePress()}>
+    This is a button
+  </Button>
 ```
 
 ### 2.文字过长隐藏的问题
@@ -62,7 +88,7 @@ var styles = StyleSheet.create({
 
 ### 4.Grid列表
 
-在App中的常用的列表出了水平列表外，我们还需要栅格化的列表。比如类似于下面这样：
+在App中的常用的列表除了水平列表外，我们还需要栅格化的列表。比如类似于下面这样：
 
 <img src="http://img1.vued.vanthink.cn/vuedcfb38c068d0c35a44b4bbc8a37ebeb10.png"/>
 
@@ -109,16 +135,17 @@ var styles = StyleSheet.create({
 </TouchableHighlight>
 ```
 
+[详细代码](https://github.com/JackPu/react-native-tips/blob/master/example/pages/home.js)
 
 
 ### 5.混合使用webview
 
-无论什么时候，作为一个前端er，在遇到比较棘手的问题时候，我们都可以回到原点，用一个网页去解决。因此无论如何都需要学会使用React Native webview。除此之外，部分页面，其实完全可以由网页去支持**多端**共用的功能，楼主亲身遇到过的场景，就是图表的绘制，我们的方案是一个页面，需要微信，手机网页，和android,ios都需要该功能，而且我们手机网页和客户端打开的稍微有区别，需要隐藏header。
+无论什么时候，作为一个前端er，在遇到比较棘手的问题时候，我们都可以回到原点，用一个网页去解决。因此无论如何都需要学会使用React Native webview。除此之外，部分页面，其实完全可以由网页去支持**多端**共用的功能，楼主亲身遇到过的场景，就是图表的绘制，我们的方案是一个页面，需要微信，手机网页，和android,ios都具备该功能，而且我们手机网页和客户端打开的稍微有区别，需要隐藏header。
 
 <img src="http://img1.vued.vanthink.cn/vuedc026487dfb0a62593d61ac2927fa727c.png" />
 
 
-上图是网页版本的，而我们通过设置页面的查询参数即来自客户端的请求或者微信的都会设置为类似这样的请求
+上图是网页版本的，而我们通过设置页面的查询参数即来自客户端的请求或者微信的都会设置为类似这样的url
 ``` bash
 https://xxx.yoursites.com/page.html?hide_header=1&client=ios
 ```
@@ -222,7 +249,7 @@ send(url,options) {
 
 + [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
 
-如果自己写的话，可以写到一个组件中，通过设置一个基类，然后进行继承和导出。设置不同的图表思路大概如下：
+如果自己写的话，可以写到一个组件中，通过设置一个基类，然后进行继承和导出。设置不同的图标思路大概如下：
 
 ``` js
 import React, { TouchableHighlight,View,Text, Image, StyleSheet, PropTypes } from 'react-native';
@@ -315,7 +342,7 @@ render() {
 
 <img src="http://img1.vued.vanthink.cn/vued191da6d8d8d42ea7d69a8cf3c287cb3f.png" />
 
-大家可以使用[react-native-navbar](https://github.com/react-native-community/react-native-navbar),自己写非常简单，样式大致就这些:
+大家可以使用[react-native-navbar](https://github.com/react-native-community/react-native-navbar),自己写也非常简单，样式大致就这些:
 
 ``` js
 	navBar: {
@@ -362,7 +389,7 @@ render() {
     }
 ```
 
-用法很简单:
+用法如下:
 
 ``` js
 <View style={[styles.navBar,{backgroundColor: '#9b59b6'}]}>
@@ -431,7 +458,7 @@ render() {
 
 ### 11.调试
 
-除了开发外，我们还希望能够很好的调试我们的App.默认的话，就像我们调试我们的web页面一样，我们可以用常用的`console.log`,`console.error`,`console.warn`。这些调试的数据，由于支持chrome调试，我们可以在控制台看到打印的数据。当然，我们也可以真机调试，比如连上你的iPhone,需要注意的是:
+除了开发外，我们还希望能够很好的调试我们的App.默认的话，就像我们调试我们的web页面一样，我们可以用常用的`console.log`,`console.error`,`console.warn`，由于支持chrome调试，我们可以在控制台看到打印的数据。当然，我们也可以真机调试，比如连上你的iPhone,需要注意的是:
 
 > 你需要修改调试js的地址，在`AppDelegate.m`中将"localhost"改成你电脑的ip就可以了。
 
@@ -440,7 +467,9 @@ render() {
 
 ## 贡献
 
-fork后，提交代码，需要在example/pages下加入你添加的代码，然后PR就可以。Po主会自己添加到首页
+本项目用于搜集开发React Native的一些常用技巧和总结，**会不断的更新**，同时会将代码放置到`example`中。
+
+欢迎大家PR.
 
 ## MIT LICENSE
 
