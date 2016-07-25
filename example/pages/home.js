@@ -26,6 +26,7 @@ var GetData = require('./getdata');
 var LongText = require('./longtext');
 var Grid = require('./grid');
 var NavBar = require('./navbar');
+var FullScreen = require('./fullscreen');
 // need tabs view github https://github.com/aksonov/react-native-tabs
 
 
@@ -78,6 +79,7 @@ class Home extends Component {
         this.openLongText = this.openLongText.bind(this);
         this.openGrid = this.openGrid.bind(this);
         this.openNavBar = this.openNavBar.bind(this);
+        this.openFullScreen = this.openFullScreen.bind(this);
     }
     
    
@@ -151,6 +153,13 @@ class Home extends Component {
                             </Button>
                         </View>
                         <View style={styles.row}>
+                            <Image style={styles.thumb} source={require('../images/nav-ios.png')} />               
+                            <Text numberOfLines={1} style={styles.text}>全屏</Text>  
+                            <Button onPress={this.openFullScreen} numberOfLines={1} style={styles.btn}>
+                              打开
+                            </Button>
+                        </View>
+                        <View style={styles.row}>
                             <Image style={styles.thumb} source={require('../images/about-ios.png')} />               
                             <Text numberOfLines={1} style={styles.text}>关于项目</Text>  
                             <Button onPress={()=>this.openWebview('关于项目介绍','https://github.com/JackPu/react-native-tips/blob/master/about-app.md')} numberOfLines={1} style={styles.btn}>
@@ -200,6 +209,10 @@ class Home extends Component {
 
     openNavBar() {
         this._pressRow('导航条',NavBar);
+    }
+
+    openFullScreen() {
+        this._pressRow('全屏',FullScreen);
     }
     
     _pressRow(title,componentname) {

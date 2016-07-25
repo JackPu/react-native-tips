@@ -454,10 +454,34 @@ render() {
 + [autobind-decorator](https://www.npmjs.com/package/autobind-decorator) 省去每次都要声明`eventHandle.bind(this)`
 
 
+### 11.全屏图片
+
+可能大家经常会遇到制作landing 页面，这个时候很多时候都是一个全屏的入场的图片，这个时候我们就需要设置好图片的样式。
+
+``` js
+fullImage:{
+    flex:1,
+    resizeMode:'cover',
+    
+}
+
+render() {
+    return(
+        <Image style={styles.fullImage}   source={require('...')}/>
+    );
+}
+```
+一般我们都设置iphone6 的全屏大小为750 * 1334 保存为xx@2x.png 而6 plus一般是1225 ＊ 2001 命名成xx@3x.png就行，这样不同的型号会去寻找对应的图片。
+
+<img src="http://img1.vued.vanthink.cn/vued3db04323e5109cfd9e6fbd92ba92c3bd.png" />
+
+*iPhone各型号分辨率一览。*
 
 
 
-### 11.调试
+
+
+### 12.调试
 
 除了开发外，我们还希望能够很好的调试我们的App.默认的话，就像我们调试我们的web页面一样，我们可以用常用的`console.log`,`console.error`,`console.warn`，由于支持chrome调试，我们可以在控制台看到打印的数据。当然，我们也可以真机调试，比如连上你的iPhone,需要注意的是:
 
