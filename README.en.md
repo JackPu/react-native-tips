@@ -35,7 +35,9 @@ react-native start
 
 The use xcode to open this project and click button run。
 
-+ [About Button](https://github.com/JackPu/react-native-tips/blob/master/example/pages/button.js) Use `TouchableHighlight`,`TouchableOpacity` or third component [react-native-button](https://github.com/ide/react-native-button).
+### [About Button](https://github.com/JackPu/react-native-tips/blob/master/example/pages/button.js) 
+
+Use `TouchableHighlight`,`TouchableOpacity` or third component [react-native-button](https://github.com/ide/react-native-button).
 
 
 ``` bash 
@@ -53,14 +55,15 @@ Then you can use it below:
 ```
 
 
-+ [Hide long text](https://github.com/JackPu/react-native-tips/blob/master/example/pages/longtext.js)
+### [Hide long text](https://github.com/JackPu/react-native-tips/blob/master/example/pages/longtext.js)
 
 
 ``` javascript
 <Text numberOfLines={1}>your long text here<Text>
 ```
 
-+ [Percent width](https://github.com/JackPu/react-native-tips/blob/master/example/pages/percent.js) We can use `flex` or `Dimensions`.
+### [Percent width](https://github.com/JackPu/react-native-tips/blob/master/example/pages/percent.js) 
+We can use `flex` or `Dimensions`.
 
 ```
 var React = require('react-native');
@@ -79,27 +82,114 @@ var styles = StyleSheet.create({
 });
 ```
 
-+ [Grid list view](https://github.com/JackPu/react-native-tips/blob/master/example/pages/grid.js)
+### [Grid list view](https://github.com/JackPu/react-native-tips/blob/master/example/pages/grid.js)
 
 like this：
 
 <img src="http://img1.vued.vanthink.cn/vuedcfb38c068d0c35a44b4bbc8a37ebeb10.png"/>
 
 
-+ [webview](https://github.com/JackPu/react-native-tips/blob/master/example/pages/web.js)Webview is the most useful component for web developers.We can use js and html to finish some hard pages and use webiew to display them.
+### [webview](https://github.com/JackPu/react-native-tips/blob/master/example/pages/web.js)Webview is the most useful component for web developers.We can use js and html to finish some hard pages and use webiew to display them.
 
-+ [Fetch](https://github.com/JackPu/react-native-tips/blob/master/example/pages/getdata.js) Use HTTP fetch as a single service and use could do some more than a request(debug,data transform,handle error etc.)
+### [Fetch](https://github.com/JackPu/react-native-tips/blob/master/example/pages/getdata.js) 
 
-+ [Manage Icons](https://github.com/JackPu/react-native-tips/blob/master/example/pages/icons.js) Make all your icons in single file and export them by ES6.
+Use HTTP fetch as a single service and use could do some more than a request(debug,data transform,handle error etc.)
 
-+ [Make a navbar](https://github.com/JackPu/react-native-tips/blob/master/example/pages/navbar.js)
+### [Manage Icons](https://github.com/JackPu/react-native-tips/blob/master/example/pages/icons.js) 
+Make all your icons in single file and export them by ES6.
+
+``` js
+import React, { TouchableHighlight,View,Text, Image, StyleSheet, PropTypes } from 'react-native';
+
+// basic style
+let styles = StyleSheet.create({
+  icon: {
+    width: 21,
+    height: 21,
+    marginTop: 4,
+    marginRight: 15,
+  }, 
+});
+
+class Icons extends React.Component { 
+    constructor(props) {
+        super(props);
+        this.press = this.press.bind(this);
+      }
+
+      press() {
+        if(typeof this.props.press == 'function') {
+            this.props.press();
+        }else{
+            // TODO
+        }
+        
+      }
+      _renderIcon() {
+        return (
+            <Image source={require('../images/baseicon.png')} style={styles.icon} />
+        );  
+      }
+
+      render() {
+        return (
+          <TouchableHighlight underlayColor="transparent" onPress={this.press}>
+            {this._renderIcon()}
+          </TouchableHighlight>
+        );
+      }
+    
+}
+
+// extends
+class CloseIcon extends Icons {
+    _renderIcon() {
+        return (
+            <Image source={require('../images/Delete-48.png')} style={styles.icon} />
+        );  
+      }
+}
+class SearchIcon extends Icons {
+    _renderIcon() {
+        return (
+            <Image source={require('../images/Search-50.png')} style={styles.icon} />
+        );  
+      }
+}
+
+// export
+module.exports = {
+    CloseIcon,
+    SearchIcon,    
+};
+```
+
+
+``` javascript
+import {CloseIcon,SearchIcon} from '../style/icon';
+
+...
+
+render() {
+	return(
+		//... some code
+		<CloseIcon></CloseIcon>
+	);
+}
+```
+
+<img src="http://img1.vued.vanthink.cn/vued9b724a613dd793d0e95400ff4e6884d7.png" />
+
+###  [Make a navbar](https://github.com/JackPu/react-native-tips/blob/master/example/pages/navbar.js)
 
 
 <img src="http://img1.vued.vanthink.cn/vued191da6d8d8d42ea7d69a8cf3c287cb3f.png" />
 
 
 
-+ Use the third component . We could go [react.parts](https://react.parts/native) to search some things.And I often use these below:
+### Use the third component 
+
+We could go [react.parts](https://react.parts/native) to search some things.And I often use these below:
 
 
 
@@ -119,7 +209,8 @@ like this：
 * [autobind-decorator](https://www.npmjs.com/package/autobind-decorator) 
 
 
-+ [FullScreen Image](https://github.com/JackPu/react-native-tips/blob/master/example/pages/fullscreen.js) Sometime we need some fullscreen Images:
+### [FullScreen Image](https://github.com/JackPu/react-native-tips/blob/master/example/pages/fullscreen.js) 
+Sometimes we need some fullscreen Images:
 
 ``` js
 fullImage:{
@@ -144,12 +235,12 @@ The iphone6 resolution is 750 * 1334 And we save it `xx@2x.png` But iphone6 plus
 
 
 
-+ [Debug] (https://facebook.github.io/react-native/docs/debugging.html)
-We can use `console.log`,`console.error`and `console.warn`。
+### [Debug] (https://facebook.github.io/react-native/docs/debugging.html)
+We can use `console.log`,`console.error`and `console.warn`。And also we can debug on device.
 
 <img src="http://img1.vued.vanthink.cn/vued0b4083c14ced5cf04fbcefe13bb59238.png" />
 
-## Contribute
+### Contribute
 
 This is a project for colletions of react native devoping's skills and code.
 Hope you can send pull requret to it.
