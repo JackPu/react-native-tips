@@ -4,6 +4,7 @@
 <img src="http://img1.vued.vanthink.cn/vued5facf9615fae72cd5296b47d241064d1.png" />
 
 
+
 相信好多写React Native的都是前端出身，当然遇见问题的，也很多时候会想从前端出发，但由于React Native本身的限制，并不是支持足够多的属性和样式，所以Bo主结合自己的开发实践,并总结了一些将来开发可能会遇见的问题并给出一些小的代码参考;(PS实现不好的希望能大家提出看法，自己也会更新)。
 
 自己将代码放到了`example`下，并且做成了一个App.这样可以查看具体运行效果：
@@ -501,6 +502,7 @@ render() {
 
 最后安利一个ppt https://yunpan.cn/cqKEvrPXAS3gy （提取码：0375）
 
+
 ## MIT LICENSE
 
-
+[English Document](https://github.com/JackPu/react-native-tips/blob/master/README.en.md)
