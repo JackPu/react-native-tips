@@ -491,6 +491,22 @@ render() {
 选中你的iPhone就可以调试了。
 <img src="http://img1.vued.vanthink.cn/vued0b4083c14ced5cf04fbcefe13bb59238.png" />
 
+### 13. 替换启动图标
+
+如果我们项目做到差不多的时候，我们就会开始注重外观了。作为界面上的启动图标必然需要静心设计。当我们拿到设计稿的时候，我们只需要完成几个简单步骤就可以咯。
+
+由于不同设备的不同分辨率，我们需要准备不同大笑的图标。推荐一个自动生成手机启动图标的网站 [makeappicon.com](http://makeappicon.com/)。下载完成后大概文件里面就会有你所需要的图标的文件目录了。
+
+<img src="http://img1.vued.vanthink.cn/vued8383666d0bef27cf1a4d86fdd0e2e4c6.png"/>
+
+在ios中我们只需要打开`images.xcassets`目录中，用下载ios目录中的图标图片替换到Xcode图片资源`AppIcon.appiconset`中就行啦。
+
+android的话，替换到对应资源文件目录中的ic_launcher.png中就欧啦。
+
+<img src="http://img1.vued.vanthink.cn/vued8d5ea5d297319adefcf587990ab966ab.png" />
+
+
+
 ## 贡献
 
 本项目用于搜集开发React Native的一些常用技巧和总结，**会不断的更新**，同时会将代码放置到`example`中。
