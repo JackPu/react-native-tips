@@ -89,11 +89,13 @@ like this：
 <img src="http://img1.vued.vanthink.cn/vuedcfb38c068d0c35a44b4bbc8a37ebeb10.png"/>
 
 
-### [webview](https://github.com/JackPu/react-native-tips/blob/master/example/pages/web.js)Webview is the most useful component for web developers.We can use js and html to finish some hard pages and use webiew to display them.
+### [webview](https://github.com/JackPu/react-native-tips/blob/master/example/pages/web.js)
+
+Webview is the most useful component for web developers.We can use js and html to finish some hard pages and use webiew to display them.
 
 ### [Fetch](https://github.com/JackPu/react-native-tips/blob/master/example/pages/getdata.js) 
 
-Use HTTP fetch as a single service and use could do some more than a request(debug,data transform,handle error etc.)
+Using HTTP fetch as a single service to make it do some more than a request(debug,data transform,handle error etc.)
 
 ### [Manage Icons](https://github.com/JackPu/react-native-tips/blob/master/example/pages/icons.js) 
 Make all your icons in single file and export them by ES6.
@@ -194,9 +196,8 @@ We could go [react.parts](https://react.parts/native) to search some things.And 
 
 
 * [react-native-search-bar](https://github.com/umhan35/react-native-search-bar)
-一款带有常用搜索框的组件
 
-* [react-native-refreshable-listview](https://github.com/jsdf/react-native-refreshable-listview) 一款带有刷新列表组件
+* [react-native-refreshable-listview](https://github.com/jsdf/react-native-refreshable-listview) 
 
 * [react-native-simple-router](https://github.com/react-native-simple-router-community/react-native-simple-router)
 
