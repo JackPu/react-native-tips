@@ -506,6 +506,89 @@ android的话，替换到对应资源文件目录中的ic_launcher.png中就欧�
 <img src="http://img1.vued.vanthink.cn/vued8d5ea5d297319adefcf587990ab966ab.png" />
 
 
+### 14. 修改React Native启动画面
+
+我们在经常刷新或者启动React Native App时候都能看到这样的画面：
+
+<img src="http://img1.vued.vanthink.cn/vued61f6960a844b96465abcf3b73c4fb3d7.png"/>
+
+用Xcode打开项目，点击LaunchScreen.xib就可以看到这个启动画面了，你可以直接在窗口中进行编辑内容。
+
+<img src="http://img1.vued.vanthink.cn/vued7534fce2df5f2dcfe1c0375fdc3fe2fa.png" />
+
+不过我们这里讲的是是讲启动画面改成我们想要的图片。同样的图片资源需要多个分辨率，推荐去[TiICons](http://ticons.fokkezb.nl/)进行自动处理，你可以上传一张2208 x 2208的图片，程序会自动裁剪成iphone和android所需图片大小。然后下载即可。
+
+<img src="http://img1.vued.vanthink.cn/vued6780436a18d056a5fc3ba5e4fca42bc2.png" />
+
+
+我们在images.xcassets目录中新建一个目录叫做`LaunchImage.launchimage`，然后将下载的目录中app/assets/iphone里面的图片复制进去。然后我们在LaunchImage.launchimage中新建Cotents.json，用于标示不同分辨率的图片适配。
+``` js
+{
+  "images": [
+    {
+      "extent": "full-screen",
+      "idiom": "iphone",
+      "filename": "Default-568h@2x.png",
+      "minimum-system-version": "7.0",
+      "orientation": "portrait",
+      "scale": "2x",
+      "subtype": "retina4"
+    },
+    {
+      "extent": "full-screen",
+      "idiom": "iphone",
+      "filename": "Default-667h@2x.png",
+      "minimum-system-version": "8.0",
+      "orientation": "portrait",
+      "scale": "2x",
+      "subtype": "667h"
+    },
+    {
+      "extent": "full-screen",
+      "idiom": "iphone",
+      "filename": "Default-Landscape-736h@3x.png",
+      "minimum-system-version": "8.0",
+      "orientation": "landscape",
+      "scale": "3x",
+      "subtype": "736h"
+    },
+    {
+      "extent": "full-screen",
+      "idiom": "iphone",
+      "filename": "Default-Portrait-736h@3x.png",
+      "minimum-system-version": "8.0",
+      "orientation": "portrait",
+      "scale": "3x",
+      "subtype": "736h"
+    },
+    {
+      "extent": "full-screen",
+      "idiom": "iphone",
+      "filename": "Default@2x.png",
+      "minimum-system-version": "7.0",
+      "orientation": "portrait",
+      "scale": "2x"
+    }
+  ],
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}
+
+```
+然后我们根据情况删除一些图片，主要是横屏的不需要的图片。然后我们点击xcode中项目主要信息那里，
+
+<img src="http://img1.vued.vanthink.cn/vuedd2d81e955dd56d16e4e400304b045ac8.png" />
+
+然后将launch image source 指定到你刚刚设置的LaunchImage目录即可。
+
+<img src="http://img1.vued.vanthink.cn/vuedc9422ad8e08543e22c5947182ff7d061.png" />
+
+然后重新build，记得将模拟器的App先删除再build。
+
+
+
 
 ## 贡献
 
