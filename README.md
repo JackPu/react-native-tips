@@ -491,7 +491,7 @@ render() {
 选中你的iPhone就可以调试了。
 <img src="http://img1.vued.vanthink.cn/vued0b4083c14ced5cf04fbcefe13bb59238.png" />
 
-### 13. 替换启动图标
+### 13. 替换启动图标以及修改App名称
 
 如果我们项目做到差不多的时候，我们就会开始注重外观了。作为界面上的启动图标必然需要静心设计。当我们拿到设计稿的时候，我们只需要完成几个简单步骤就可以咯。
 
@@ -505,6 +505,10 @@ android的话，替换到对应资源文件目录中的ic_launcher.png中就欧�
 
 <img src="http://img1.vued.vanthink.cn/vued8d5ea5d297319adefcf587990ab966ab.png" />
 
+
+关于修改App名称的话，就相对简单了，在xcode项目中打开，点击到build settings中到Packaging中设置即可。
+
+<img src="http://img1.vued.vanthink.cn/vued5d7b7197bdf6cab7d94bbcdded495640.png"/>
 
 ### 14. 修改React Native启动画面
 
