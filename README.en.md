@@ -33,7 +33,7 @@ Go to `example` directory
 react-native start
 ```
 
-The use xcode to open this project and click button run。
+Then use xcode to open this project and click button run。
 
 ### [About Button](https://github.com/JackPu/react-native-tips/blob/master/example/pages/button.js) 
 
