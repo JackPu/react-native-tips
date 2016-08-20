@@ -592,6 +592,20 @@ android的话，替换到对应资源文件目录中的ic_launcher.png中就欧�
 然后重新build，记得将模拟器的App先删除再build。
 
 
+### 15 文字换行
+
+写过html的大家换行的方法有很多种，对于初学的，大家都知道用`<br/>`，那么在react native中其实用换行符就行啦。
+
+``` js
+<Text>Hello {"\n"} Wolrd</Text>
+```
+效果类似如下：
+
+```bash
+Hello
+World
+```
+
 
 
 ## 贡献
