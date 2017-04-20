@@ -1,4 +1,4 @@
-# React Native Tips <img src="https://camo.githubusercontent.com/75f980cdcda146e0f7c63dcb504deba3150695ee/68747470733a2f2f62616467652e667572792e696f2f6a732f72656163742d6e61746976652e737667"/> <img src="https://camo.githubusercontent.com/1a2ac7e3bdf80d54dae0b21f514a7ccb5c47a1fb/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f75696865726f732f72656163742d6e61746976652d72656475782d746f646f2d6c6973742e7376673f7374796c653d666c6174" ?>
+# React Native Tips <img src="https://camo.githubusercontent.com/75f980cdcda146e0f7c63dcb504deba3150695ee/68747470733a2f2f62616467652e667572792e696f2f6a732f72656163742d6e61746976652e737667"/> <img src="https://camo.githubusercontent.com/1a2ac7e3bdf80d54dae0b21f514a7ccb5c47a1fb/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f75696865726f732f72656163742d6e61746976652d72656475782d746f646f2d6c6973742e7376673f7374796c653d666c6174"/>
 
 
 <img src="http://img1.vued.vanthink.cn/vued5facf9615fae72cd5296b47d241064d1.png" />
@@ -484,12 +484,30 @@ render() {
 
 ### 12.调试
 
+#### iOS
+
 除了开发外，我们还希望能够很好的调试我们的App.默认的话，就像我们调试我们的web页面一样，我们可以用常用的`console.log`,`console.error`,`console.warn`，由于支持chrome调试，我们可以在控制台看到打印的数据。当然，我们也可以真机调试，比如连上你的iPhone,需要注意的是:
 
 > 你需要修改调试js的地址，在`AppDelegate.m`中将"localhost"改成你电脑的ip就可以了。
 
 选中你的iPhone就可以调试了。
 <img src="http://img1.vued.vanthink.cn/vued0b4083c14ced5cf04fbcefe13bb59238.png" />
+
+#### Android 
+
+如果我们要调试我们的Android 设备，连上我们手机然后用 Android Studio 运行的时候会发现 这样的错误:
+
+``` bash
+Could not get BatchedBridge, make sure your bundle is packaged properly” on start of app
+```
+
+如果我们是用 usb 连接的话，我们需要执行 `adb reverse tcp:8081 tcp:8081`，这个时候请求就会到正确的文件。
+
+如果我们是同一个网段，我们也可以通过无线来请求资源，这个时候我们需要摇一摇手机，然后依次选择 Dev Settings -> Debug server host & port for device 然后我们需要填写我们的IP 和端口，完成后重新加载即可。
+
+
+
+
 
 ### 13. 替换启动图标以及修改App名称
 
